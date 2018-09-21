@@ -84,8 +84,7 @@ class JsonComparatorSpec extends FlatSpec {
       Difference("/a/b[1]", Some("2"), Some("55")),
       Difference("/a/b[3]", None, Some("4")),
       Difference("/a/c", Some("3"), None),
-      Difference("/a/d", None, Some(""""ddd""""))
-    ))
+      Difference("/a/d", None, Some(""""ddd""""))))
   }
 
   it should "compare apples and pears" in {

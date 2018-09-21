@@ -1,20 +1,18 @@
-import bintray.Keys._
-
 organization := "com.agilogy"
 
 name := "json-comparator"
 
-version := "1.0.0-SNAPSHOT"
+version := "1.0.0"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.12.6"
 
-crossScalaVersions := Seq("2.10.4","2.11.6")
+crossScalaVersions := Seq("2.10.7","2.11.12", "2.12.6")
 
 resolvers ++= Seq("Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/")
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.3.8",
-  "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+  "com.typesafe.play" %% "play-json" % "2.6.10",
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 )
 
 // --> Linters
@@ -67,29 +65,23 @@ scalacOptions in Compile := (scalacOptions in Compile).value filterNot { switch 
 
 resolvers += "Linter Repository" at "https://hairyfotr.github.io/linteRepo/releases"
 
-addCompilerPlugin("com.foursquare.lint" %% "linter" % "0.1.9")
+//addCompilerPlugin("com.foursquare.lint" %% "linter" % "0.1.9")
 
 scalastyleFailOnError := true
 
 // <-- Linters
 
-// Reformat at every compile.
-// See https://github.com/sbt/sbt-scalariform
-scalariformSettings
-
-ScoverageSbtPlugin.ScoverageKeys.coverageExcludedPackages := "<empty>"
+coverageExcludedPackages := "<empty>"
 
 publishMavenStyle := false
 
 // --> bintray
 
-seq(bintrayPublishSettings:_*)
+bintrayOrganization := Some("agilogy")
 
-repository in bintray := "scala"
+bintrayRepository := "scala"
 
-bintrayOrganization in bintray := Some("agilogy")
-
-packageLabels in bintray := Seq("scala")
+bintrayPackageLabels := Seq("scala")
 
 licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 

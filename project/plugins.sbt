@@ -1,11 +1,13 @@
 resolvers += Classpaths.sbtPluginReleases
 
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.0.4")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
 
-addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.0.0.BETA1")
+addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.2.5")
 
-addSbtPlugin("org.brianmckenna" % "sbt-wartremover" % "0.11")
+addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.3.7")
 
-addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.6.0")
+addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0")
+// Reformat at every compile.
+// See https://github.com/sbt/sbt-scalariform
+addSbtPlugin("org.scalariform" % "sbt-scalariform" % "1.8.2")

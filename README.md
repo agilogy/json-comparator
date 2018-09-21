@@ -10,7 +10,7 @@ A simple library to check a json document against an expected json pattern
 ```
 resolvers += Resolver.url("Agilogy Scala",url("http://dl.bintray.com/agilogy/scala/"))(Resolver.ivyStylePatterns)
 
-libraryDependencies += "com.agilogy" %% "json-comparator" % "1.0.0-SNAPSHOT"
+libraryDependencies += "com.agilogy" %% "json-comparator" % "1.0.0"
 ```
 
 ## Usage
@@ -32,13 +32,11 @@ diff("""{"b": [...,{...},...,{"a":3},...]}""", """{"b": [{"a":3}]}""")
 ## TO-DO
 
 - Document it
-- Make it independent of Play-Json library (using a typeclass)
-- Release it
 - Solve or document the weakness of ... inside strings in Json
 
 ## Copyright
 
-Copyright 2015 Agilogy
+Copyright 2018 Agilogy
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

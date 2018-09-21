@@ -71,14 +71,15 @@ class JsonComparatorWithEllipsisSpec extends FlatSpec {
   }
 
   it should "compare json arrays with ellipsis when the ellipsis represents zero elements" in {
-
     assert(diff("""[1,...]""", """[1]""") === Seq())
-    //assert(diff("""[...,1,...]""","""[1]""","Test")
+    assert(diff("""[...,1]""", """[1]""") === Seq())
+    assert(diff("""[...,1,...]""", """[1]""") == Seq())
   }
 
   it should "compare json arrays with nested ellipsis when the ellipsis represents zero elements" in {
     assert(diff("""{"a":[1,...]}""", """{"a":[1]}""") === Seq())
-    //assert(diff("""[...,1,...]""","""[1]""","Test")
+    assert(diff("""{"a":[...,1]}""", """{"a":[1]}""") == Seq())
+    assert(diff("""{"a":[...,1,...]}""", """{"a":[1]}""") == Seq())
   }
 
   it should "compare json arrays with ellipsis between elements" in {
